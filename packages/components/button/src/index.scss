@@ -1,0 +1,221 @@
+@import '@p/theme/color.variables.scss';
+
+button {
+  outline: none;
+}
+
+$xs: 2px 8px;
+$sm: 5px 10px;
+$md: 8px 12px;
+$lg: 10px 16px;
+$xsloading: 1px 4px;
+$smloading: 2px 5px;
+$mdloading: 3px 6px;
+$lgloading: 4px 8px;
+
+.demo-button {
+  padding: $md;
+  overflow: hidden;
+  border-radius: 6px;
+  border: 0;
+  text-align: center;
+  display: inline-block;
+  position: relative;
+  outline: none;
+  font-weight: 400;
+  user-select: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.1s linear;
+  box-sizing: border-box;
+}
+
+@mixin demo-button-colors($color, $type) {
+  background: $color;
+  color: $color;
+  @if $type== 'default' {
+    background: transparent;
+    border: 1px solid $color;
+    &:focus,
+    &:hover {
+      background: mix($white, $color, 90%);
+      border: 1px solid mix($white, $color, 20%);
+      color: $color;
+    }
+  }
+  @if $type== 'primary' {
+    border: none;
+    color: $white;
+    &:focus,
+    &:hover {
+      background: mix($white, $color, 30%);
+    }
+    &:active {
+      background: mix($black, $color, 5%);
+    }
+    &:disabled {
+      background: mix($white, $color, 40%);
+    }
+  }
+  @if $type== 'link' {
+    background: none;
+    border: none;
+  }
+}
+
+.demo-button-type-default {
+  @include demo-button-colors($primaryColor, 'default');
+}
+
+.demo-button-type-primary {
+  @include demo-button-colors($primaryColor, 'primary');
+  border: none;
+  color: $white !important;
+}
+
+.demo-button-type-link {
+  @include demo-button-colors($primaryColor, 'link');
+}
+
+.demo-button-type-ghost {
+  @include demo-button-colors($primaryColor, 'ghost');
+}
+
+.demo-button-type-delicate {
+  @include demo-button-colors($delicateColor, 'delicate');
+}
+
+.demo-button-type-default.demo-button-status-success {
+  @include demo-button-colors($successColor, 'default');
+}
+
+.demo-button-type-default.demo-button-status-info {
+  @include demo-button-colors($infoColor, 'default');
+}
+
+.demo-button-type-default.demo-button-status-warning {
+  @include demo-button-colors($warningColor, 'default');
+}
+
+.demo-button-type-default.demo-button-status-danger {
+  @include demo-button-colors($dangerColor, 'default');
+}
+
+.demo-button-type-primary.demo-button-status-success {
+  @include demo-button-colors($successColor, 'primary');
+}
+
+.demo-button-type-primary.demo-button-status-info {
+  @include demo-button-colors($infoColor, 'primary');
+}
+
+.demo-button-type-primary.demo-button-status-warning {
+  @include demo-button-colors($warningColor, 'primary');
+}
+
+.demo-button-type-primary.demo-button-status-danger {
+  @include demo-button-colors($dangerColor, 'primary');
+}
+
+.demo-button-type-link.demo-button-status-success {
+  @include demo-button-colors($successColor, 'link');
+}
+
+.demo-button-type-link.demo-button-status-info {
+  @include demo-button-colors($infoColor, 'link');
+}
+
+.demo-button-type-link.demo-button-status-warning {
+  @include demo-button-colors($warningColor, 'link');
+}
+
+.demo-button-type-link.demo-button-status-danger {
+  @include demo-button-colors($dangerColor, 'link');
+}
+
+.demo-button-type-ghost.demo-button-status-success {
+  @include demo-button-colors($successColor, 'ghost');
+}
+
+.demo-button-type-ghost.demo-button-status-info {
+  @include demo-button-colors($infoColor, 'ghost');
+}
+
+.demo-button-type-ghost.demo-button-status-warning {
+  @include demo-button-colors($warningColor, 'ghost');
+}
+
+.demo-button-type-ghost.demo-button-status-danger {
+  @include demo-button-colors($dangerColor, 'ghost');
+}
+
+.demo-button-disabled {
+  background-color: #f7f7fa;
+  cursor: not-allowed;
+
+  &:focus,
+  &:hover {
+    background-color: #f7f7fa;
+    outline: none;
+  }
+}
+
+.demo-button-shape-square {
+  border-radius: 6px;
+}
+
+.demo-button-shape-circle {
+  border-radius: 50%;
+  padding: 0;
+}
+
+.demo-button-shape-round {
+  border-radius: 18px;
+}
+
+.demo-button-size-lg {
+  padding: $lg;
+  font-size: 16px;
+}
+
+.demo-button-size-lg.demo-button-loading {
+  padding: $lgloading;
+  font-size: 16px;
+}
+
+.demo-button-size-md {
+  padding: $md;
+  font-size: 14px;
+}
+
+.demo-button-size-md.demo-button-loading {
+  padding: $mdloading;
+  pointer-events: none;
+  font-size: 14px;
+}
+
+.demo-button-size-sm {
+  padding: $sm;
+  font-size: 14px;
+}
+
+.demo-button-size-sm.demo-button-loading {
+  padding: $smloading;
+  pointer-events: none;
+  font-size: 14px;
+}
+
+.demo-button-size-xs {
+  padding: $xs;
+  font-size: 12px;
+}
+
+.demo-button-size-xs.demo-button-loading {
+  padding: $xsloading;
+  pointer-events: none;
+  font-size: 14px;
+}
+
+.demo-button-slot {
+  text-align: center;
+}
